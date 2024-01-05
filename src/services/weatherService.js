@@ -5,6 +5,8 @@ const BASE_URL = 'https://api.openweathermap.org/data/2.5/forecast';
 
 export const fetchWeatherData = async city => {
   try {
+    /*HTTPS GET request to the OpenWeatherMap API to fetch weather data for a
+    specific city.*/
     const response = await axios.get(`${BASE_URL}?q=${city}&appid=${API_KEY}`);
     return response.data.list;
   } catch (error) {
@@ -23,9 +25,9 @@ export const geoLocationWeatherData = async searchLocation => {
     const locationData =
       geocodingResponse.data[0]?.lat && geocodingResponse.data[0]?.lon
         ? {
-            lat: geocodingResponse.data[0].lat,
-            lon: geocodingResponse.data[0].lon,
-          }
+          lat: geocodingResponse.data[0].lat,
+          lon: geocodingResponse.data[0].lon,
+        }
         : null;
 
     if (locationData) {

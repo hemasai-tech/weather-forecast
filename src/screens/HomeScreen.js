@@ -45,6 +45,8 @@ const HomeScreen = () => {
     if (searchLocation.trim() !== '') {
       setLoading(true);
 
+     /* the `geoLocationWeatherData` function and passing the `searchLocation` as a parameter. This
+     function is responsible for fetching weather data based on the provided location. */
       let locationData = await geoLocationWeatherData(searchLocation);
       setWeatherData(locationData);
       setLoading(false);
@@ -80,6 +82,8 @@ const HomeScreen = () => {
           data={weatherData}
           keyExtractor={item => item.dt.toString()}
           renderItem={({item}) => (
+           /* The `<WeatherCard>` component is being rendered for each item in the `weatherData` array.
+           It is responsible for displaying the weather information for a specific day. */
             <WeatherCard
               day={item.dt_txt}
               temperature={item.main.temp}

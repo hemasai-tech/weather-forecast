@@ -16,7 +16,7 @@ export const geoLocationWeatherData = async searchLocation => {
   try {
     // Geocoding API request
     const geocodingResponse = await axios.get(
-      `http://api.openweathermap.org/geo/1.0/direct?q=${searchLocation}&limit=1&appid=${API_KEY}`,
+      `https://api.openweathermap.org/geo/1.0/direct?q=${searchLocation}&limit=1&appid=${API_KEY}`,
     );
 
     // Extract location data from the geocoding response
